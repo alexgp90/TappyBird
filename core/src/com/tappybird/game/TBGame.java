@@ -16,6 +16,7 @@ public class TBGame extends Game {
 		Gdx.app.log("TBGame","created");
 		setScreen(new GameScreen());
 
+
 	}
 
 }
