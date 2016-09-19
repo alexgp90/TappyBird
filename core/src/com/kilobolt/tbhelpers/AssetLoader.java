@@ -21,7 +21,7 @@ public class AssetLoader {
 
 
     public static void load(){
-        texture = new Texture(Gdx.files.internal("data/texture.png"));
+        texture = new Texture(Gdx.files.internal("texture.png"));
         texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         bg = new TextureRegion(texture, 0,0,136,43);
