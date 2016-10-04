@@ -38,6 +38,10 @@ public class Scrollable {
 
     }
 
+    public void stop() {
+        velocity.x = 0;
+    }
+
     public boolean isScrolledLeft() {
         return isScrolledLeft;
     }

@@ -2,29 +2,41 @@ package com.kilobolt.tbhelpers;
 
 import com.badlogic.gdx.InputProcessor;
 import com.kilobolt.gameobjects.Bird;
+import com.kilobolt.gameworld.GameWorld;
 
-/**
- * Created by alexandru.pavel on 19.09.2016.
- */
-public class InputHandler implements InputProcessor{
-
+public class InputHandler implements InputProcessor {
     private Bird myBird;
+    private GameWorld myWorld;
 
-    public InputHandler(Bird bird) {
+    // Ask for a reference to the Bird when InputHandler is created.
+    public InputHandler(GameWorld myWorld) {
         // myBird now represents the gameWorld's bird.
-        myBird = bird;
+        this.myWorld = myWorld;
+        myBird = myWorld.getBird();
     }
 
     @Override
-    public boolean touchDown (int screenX, int screenY, int pointer, int button){
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+
+        if (myWorld.isReady()) {
+            myWorld.start();
+        }
+
         myBird.onClick();
-        return false;
+
+        if (myWorld.isGameOver() || myWorld.isHighScore()) {
+            // Reset all variables, go to GameState.READ
+            myWorld.restart();
+        }
+
+        return true;
     }
 
     @Override
-    public boolean keyDown(int keycode){
+    public boolean keyDown(int keycode) {
         return false;
     }
+
     @Override
     public boolean keyUp(int keycode) {
         return false;

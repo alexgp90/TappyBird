@@ -1,8 +1,11 @@
 package com.kilobolt.tbhelpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
@@ -18,9 +21,18 @@ public class AssetLoader {
 
     public static TextureRegion skullUp, skullDown, bar;
 
+    public static Sound hit, flap ,coin;
+
+    public static BitmapFont font, shadow;
+
+    public static Preferences prefs;
 
 
     public static void load(){
+        hit = Gdx.audio.newSound(Gdx.files.internal("hit.wav"));
+        flap = Gdx.audio.newSound(Gdx.files.internal("flap.wav"));
+        coin = Gdx.audio.newSound(Gdx.files.internal("coin.wav"));
+
         texture = new Texture(Gdx.files.internal("texture.png"));
         texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
@@ -51,12 +63,42 @@ public class AssetLoader {
         bar.flip(false, true);
 
 
+        font = new BitmapFont(Gdx.files.internal("text.fnt"));
+        font.getData().setScale(.25f, -.25f);
+        shadow = new BitmapFont(Gdx.files.internal("shadow.fnt"));
+        shadow.getData().setScale(.25f, -.25f);
+
+        prefs = Gdx.app.getPreferences("ZombieBird");
+
+        // Provide default high score of 0
+        if (!prefs.contains("highScore")) {
+            prefs.putInteger("highScore", 0);
+        }
+
 
     }
 
     public static void dispose() {
         // We must dispose of the texture when we are finished.
         texture.dispose();
+
+        hit.dispose();
+        flap.dispose();
+        coin.dispose();
+
+        font.dispose();
+        shadow.dispose();
+    }
+
+    // Receives an integer and maps it to the String highScore in prefs
+    public static void setHighScore(int val) {
+        prefs.putInteger("highScore", val);
+        prefs.flush();
+    }
+
+    // Retrieves the current high score
+    public static int getHighScore() {
+        return prefs.getInteger("highScore");
     }
 
 }
