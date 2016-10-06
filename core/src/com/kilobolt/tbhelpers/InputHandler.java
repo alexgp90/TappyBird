@@ -1,5 +1,6 @@
 package com.kilobolt.tbhelpers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.kilobolt.gameobjects.Bird;
 import com.kilobolt.gameworld.GameWorld;
@@ -28,7 +29,16 @@ public class InputHandler implements InputProcessor {
             // Reset all variables, go to GameState.READ
             myWorld.restart();
         }
+        if (screenX>136 && screenY>136) {
+            Gdx.app.log("InputHandler", "right side");
 
+            //cod pentru miscat la dreapta
+        }
+        if (screenX<136 && screenY>136) {
+            Gdx.app.log("InputHandler", "left side");
+
+            //cod pentru miscat la stanga
+        }
         return true;
     }
 

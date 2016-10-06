@@ -1,5 +1,6 @@
 package com.kilobolt.gameobjects;
 
+
 import java.util.Random;
 
 import com.badlogic.gdx.math.Intersector;
@@ -67,6 +68,11 @@ public class Pipe extends Scrollable {
         isScored = false;
     }
 
+    public void onRestart(float x, float scrollSpeed) {
+        velocity.x = scrollSpeed;
+        reset(x);
+    }
+
     public Rectangle getSkullUp() {
         return skullUp;
     }
@@ -91,10 +97,6 @@ public class Pipe extends Scrollable {
                     .overlaps(bird.getBoundingCircle(), skullDown));
         }
         return false;
-    }
-    public void onRestart(float x, float scrollSpeed) {
-        velocity.x = scrollSpeed;
-        reset(x);
     }
 
     public boolean isScored() {

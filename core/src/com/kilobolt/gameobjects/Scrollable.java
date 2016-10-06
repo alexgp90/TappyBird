@@ -1,24 +1,24 @@
 package com.kilobolt.gameobjects;
 
+
 import com.badlogic.gdx.math.Vector2;
 
-/**
- * Created by alexandru.pavel on 26.09.2016.
- */
 public class Scrollable {
+
+
+    // Protected is similar to private, but allows inheritance by subclasses.
     protected Vector2 position;
     protected Vector2 velocity;
     protected int width;
     protected int height;
     protected boolean isScrolledLeft;
 
-    public Scrollable (float x, float y, int width, int height, float scrollSpeed){
+    public Scrollable(float x, float y, int width, int height, float scrollSpeed) {
         position = new Vector2(x, y);
         velocity = new Vector2(scrollSpeed, 0);
         this.width = width;
         this.height = height;
         isScrolledLeft = false;
-
     }
 
     public void update(float delta) {
@@ -30,38 +30,39 @@ public class Scrollable {
         }
     }
 
-
-    public void reset (float newX){
+    // Reset: Should Override in subclass for more specific behavior.
+    public void reset(float newX) {
         position.x = newX;
         isScrolledLeft = false;
-
-
     }
 
     public void stop() {
         velocity.x = 0;
     }
 
+    // Getters for instance variables
     public boolean isScrolledLeft() {
         return isScrolledLeft;
     }
 
-    public float getTailX(){
+    public float getTailX() {
         return position.x + width;
     }
 
-    public float getX(){
+    public float getX() {
         return position.x;
     }
-    public float getY(){
+
+    public float getY() {
         return position.y;
     }
 
-    public int getWidth(){
+    public int getWidth() {
         return width;
     }
 
     public int getHeight() {
         return height;
     }
+
 }
