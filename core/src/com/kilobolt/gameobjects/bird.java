@@ -83,10 +83,16 @@ public class Bird {
         return velocity.y > 70 || !isAlive;
     }
 
-    public void onClick() {
+    public void onClickRight() {
         if (isAlive) {
             AssetLoader.flap.play();
             velocity.y = -140;
+        }
+    }
+    public void onClickLeft() {
+        if (isAlive) {
+            AssetLoader.flap.play();
+            velocity.y = 140;
         }
     }
 

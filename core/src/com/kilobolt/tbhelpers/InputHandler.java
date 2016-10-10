@@ -23,7 +23,7 @@ public class InputHandler implements InputProcessor {
             myWorld.start();
         }
 
-        myBird.onClick();
+        //myBird.onClick();
 
         if (myWorld.isGameOver() || myWorld.isHighScore()) {
             // Reset all variables, go to GameState.READ
@@ -31,12 +31,12 @@ public class InputHandler implements InputProcessor {
         }
         if (screenX>136 && screenY>136) {
             Gdx.app.log("InputHandler", "right side");
-
+            myBird.onClickRight();
             //cod pentru miscat la dreapta
         }
         if (screenX<136 && screenY>136) {
             Gdx.app.log("InputHandler", "left side");
-
+            myBird.onClickLeft();
             //cod pentru miscat la stanga
         }
         return true;
