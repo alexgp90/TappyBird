@@ -62,6 +62,11 @@ public class GameWorld {
             scroller.stop();
             bird.die();
             AssetLoader.hit.play();
+            currentState = GameState.GAMEOVER;
+            if (score > AssetLoader.getHighScore()) {
+                AssetLoader.setHighScore(score);
+                currentState = GameState.HIGHSCORE;
+            }
         }
 
         if (Intersector.overlaps(bird.getBoundingCircle(), ground)) {

@@ -33,7 +33,7 @@ public class Bird {
 
     public void update(float delta) {
 
-        velocity.add(acceleration.cpy().scl(delta));
+        velocity.add(acceleration.cpy().scl(0));
 
         if (velocity.y > 200) {
             velocity.y = 200;
@@ -45,7 +45,7 @@ public class Bird {
             velocity.y = 0;
         }
 
-        position.add(velocity.cpy().scl(delta));
+        position.add(velocity.cpy().scl(0));
 
         // Set the circle's center to be (9, 6) with respect to the bird.
         // Set the circle's radius to be 6.5f;
@@ -87,12 +87,14 @@ public class Bird {
         if (isAlive) {
             AssetLoader.flap.play();
             velocity.y = -140;
+            position.add(0,10);
         }
     }
     public void onClickLeft() {
         if (isAlive) {
             AssetLoader.flap.play();
             velocity.y = 140;
+            position.add(0,-10);
         }
     }
 

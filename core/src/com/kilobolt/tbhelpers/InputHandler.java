@@ -44,12 +44,14 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        return false;
+        myBird.onClickRight();
+        return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        return false;
+        myBird.onClickLeft();
+        return true;
     }
 
     @Override
