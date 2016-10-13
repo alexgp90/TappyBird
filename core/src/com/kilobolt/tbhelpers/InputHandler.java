@@ -45,6 +45,7 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         myBird.onClickRight();
+        ///http://badlogicgames.com/forum/viewtopic.php?t=3783&p=18408
         return true;
     }
 
