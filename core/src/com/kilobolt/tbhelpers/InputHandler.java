@@ -31,12 +31,15 @@ public class InputHandler implements InputProcessor {
         }
         if (screenX>136 && screenY>136) {
             Gdx.app.log("InputHandler", "right side");
-            myBird.onClickRight();
+         //   myBird.onClickRight();
+            myBird.onStartclickRight();
             //cod pentru miscat la dreapta
         }
         if (screenX<136 && screenY>136) {
             Gdx.app.log("InputHandler", "left side");
-            myBird.onClickLeft();
+
+           // myBird.onClickLeft();
+            myBird.onStartclickLeft();
             //cod pentru miscat la stanga
         }
         return true;
@@ -62,7 +65,18 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
+        if (screenX>136 && screenY>136) {
+            Gdx.app.log("InputHandler", "right side");
+            myBird.onStopclickRight();
+            //cod pentru miscat la dreapta
+        }
+        if (screenX<136 && screenY>136) {
+            Gdx.app.log("InputHandler", "left side");
+            myBird.onStopclickLeft();;
+            //cod pentru miscat la stanga
+        }
+
+        return true;
     }
 
     @Override
