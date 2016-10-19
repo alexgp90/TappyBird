@@ -1,11 +1,14 @@
 package com.kilobolt.gameobjects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.kilobolt.tbhelpers.AssetLoader;
+import com.kilobolt.tbhelpers.InputHandler;
 
 public class Bird {
 
+    private InputHandler input;
     private Vector2 position;
     private Vector2 velocity;
     private Vector2 acceleration;
@@ -59,7 +62,16 @@ public class Bird {
                 rotation = -20;
             }
         }
-
+        if (input.moveleft == true)
+        {
+            Gdx.app.log("bird", "left");
+            position.add(0,-2);
+        }
+        if (input.moveright == true)
+        {
+            Gdx.app.log("bird", "right");
+            position.add(0,2);
+        }
         // Rotate clockwise
         if (isFalling() || !isAlive) {
             rotation += 480 * delta;
@@ -96,6 +108,40 @@ public class Bird {
             velocity.y = 140;
             position.add(0,-10);
         }
+    }
+
+
+    public void  onStartclickLeft(){
+        int x=-10;
+        if (isAlive) {
+            AssetLoader.flap.play();
+            velocity.y = 140;
+            position.add(0,--x);
+        }
+
+    }
+
+    public void onStartclickRight(){
+        int x=10;
+        if (isAlive) {
+            AssetLoader.flap.play();
+            velocity.y = 140;
+            position.add(0,x++);
+        }
+
+    }
+
+
+
+
+    public void onStopclickRight(){
+
+
+    }
+
+    public void onStopclickLeft(){
+
+
     }
 
     public void die() {

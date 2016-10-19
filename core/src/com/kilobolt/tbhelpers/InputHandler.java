@@ -15,6 +15,8 @@ public class InputHandler implements InputProcessor {
         this.myWorld = myWorld;
         myBird = myWorld.getBird();
     }
+    public static  boolean moveleft = false;
+    public static boolean moveright = false ;
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
@@ -30,16 +32,18 @@ public class InputHandler implements InputProcessor {
             myWorld.restart();
         }
         if (screenX>136 && screenY>136) {
-            Gdx.app.log("InputHandler", "right side");
+            Gdx.app.log("InputHandler", "right side down");
          //   myBird.onClickRight();
-            myBird.onStartclickRight();
+          //  myBird.onStartclickRight();
+            moveright = true;
             //cod pentru miscat la dreapta
         }
         if (screenX<136 && screenY>136) {
-            Gdx.app.log("InputHandler", "left side");
+            Gdx.app.log("InputHandler", "left side down");
 
            // myBird.onClickLeft();
-            myBird.onStartclickLeft();
+          //  myBird.onStartclickLeft();
+            moveleft = true;
             //cod pentru miscat la stanga
         }
         return true;
@@ -47,14 +51,14 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        myBird.onClickRight();
+      //  myBird.onClickRight();
         ///http://badlogicgames.com/forum/viewtopic.php?t=3783&p=18408
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        myBird.onClickLeft();
+       // myBird.onClickLeft();
         return true;
     }
 
@@ -66,13 +70,15 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         if (screenX>136 && screenY>136) {
-            Gdx.app.log("InputHandler", "right side");
-            myBird.onStopclickRight();
+            Gdx.app.log("InputHandler", "right side up");
+            moveright = false;
+           // myBird.onStopclickRight();
             //cod pentru miscat la dreapta
         }
         if (screenX<136 && screenY>136) {
-            Gdx.app.log("InputHandler", "left side");
-            myBird.onStopclickLeft();;
+            Gdx.app.log("InputHandler", "left side up");
+            moveleft = false;
+          //  myBird.onStopclickLeft();;
             //cod pentru miscat la stanga
         }
 
