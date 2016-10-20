@@ -95,55 +95,6 @@ public class Bird {
         return velocity.y > 70 || !isAlive;
     }
 
-    public void onClickRight() {
-        if (isAlive) {
-            AssetLoader.flap.play();
-            velocity.y = -140;
-            position.add(0,10);
-        }
-    }
-    public void onClickLeft() {
-        if (isAlive) {
-            AssetLoader.flap.play();
-            velocity.y = 140;
-            position.add(0,-10);
-        }
-    }
-
-
-    public void  onStartclickLeft(){
-        int x=-10;
-        if (isAlive) {
-            AssetLoader.flap.play();
-            velocity.y = 140;
-            position.add(0,--x);
-        }
-
-    }
-
-    public void onStartclickRight(){
-        int x=10;
-        if (isAlive) {
-            AssetLoader.flap.play();
-            velocity.y = 140;
-            position.add(0,x++);
-        }
-
-    }
-
-
-
-
-    public void onStopclickRight(){
-
-
-    }
-
-    public void onStopclickLeft(){
-
-
-    }
-
     public void die() {
         isAlive = false;
         velocity.y = 0;
