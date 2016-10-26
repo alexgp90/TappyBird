@@ -33,7 +33,7 @@ public class AssetLoader {
         flap = Gdx.audio.newSound(Gdx.files.internal("flap.wav"));
         coin = Gdx.audio.newSound(Gdx.files.internal("coin.wav"));
 
-        texture = new Texture(Gdx.files.internal("texture.png"));
+        texture = new Texture(Gdx.files.internal("texture_new.png"));
         texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         bg = new TextureRegion(texture, 0,0,136,43);
