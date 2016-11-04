@@ -2,13 +2,13 @@ package com.kilobolt.gameobjects;
 
 import com.kilobolt.gameworld.GameWorld;
 import com.kilobolt.tbhelpers.AssetLoader;
-
+import com.kilobolt.tbhelpers.Variables;
 public class ScrollHandler {
 
     private Grass frontGrass, backGrass;
     private Pipe pipe1, pipe2, pipe3;
-    public static final int SCROLL_SPEED = -59;
-    public static final int PIPE_GAP = 49;
+    public static final int SCROLL_SPEED = Variables.getScrollSpeed();
+    public static final int PIPE_GAP = Variables.getPipeGap();
 
     private GameWorld gameWorld;
 

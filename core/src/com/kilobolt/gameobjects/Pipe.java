@@ -5,16 +5,16 @@ import java.util.Random;
 
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
-
+import com.kilobolt.tbhelpers.Variables;
 public class Pipe extends Scrollable {
 
     private Random r;
 
     private Rectangle skullUp, skullDown, barUp, barDown;
 
-    public static final int VERTICAL_GAP = 45;
-    public static final int SKULL_WIDTH = 24;
-    public static final int SKULL_HEIGHT = 11;
+    public static final int VERTICAL_GAP = Variables.getVerticalGap();
+    public static final int SKULL_WIDTH = Variables.getSkullWidth();
+    public static final int SKULL_HEIGHT = Variables.getSkullHeight();
     private float groundY;
 
     private boolean isScored = false;
