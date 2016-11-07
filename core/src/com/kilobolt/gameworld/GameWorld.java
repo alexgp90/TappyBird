@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.kilobolt.gameobjects.Bird;
 import com.kilobolt.gameobjects.ScrollHandler;
 import com.kilobolt.tbhelpers.AssetLoader;
+import com.kilobolt.tbhelpers.Variables;
 
 public class GameWorld {
 
@@ -12,6 +13,7 @@ public class GameWorld {
     private ScrollHandler scroller;
     private Rectangle ground;
     private int score = 0;
+    private Variables variables;
 
     private int midPointY;
 
@@ -57,6 +59,12 @@ public class GameWorld {
 
         bird.update(delta);
         scroller.update(delta);
+
+        if (score % 10 == 0)
+            {
+        /// TO DO:       variables.increaseScrollSpeed(5);
+            }
+
 
         if (scroller.collides(bird) && bird.isAlive()) {
             scroller.stop();

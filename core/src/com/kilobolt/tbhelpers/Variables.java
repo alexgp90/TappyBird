@@ -9,12 +9,12 @@ package com.kilobolt.tbhelpers;
 public class Variables {
 
 
-    public static final int SCROLL_SPEED = -59;
-    public static final int PIPE_GAP = 49;
+    private static int SCROLL_SPEED = -69;
+    private static final int PIPE_GAP = 49;
 
-    public static final int VERTICAL_GAP = 45;
-    public static final int SKULL_WIDTH = 24;
-    public static final int SKULL_HEIGHT = 11;
+    private static final int VERTICAL_GAP = 45;
+    private static final int SKULL_WIDTH = 24;
+    private static final int SKULL_HEIGHT = 11;
 
     public static int getScrollSpeed() {
         return SCROLL_SPEED;
@@ -36,7 +36,7 @@ public class Variables {
         return SKULL_HEIGHT;
     }
 
-
+    public void increaseScrollSpeed(int speed) { SCROLL_SPEED = SCROLL_SPEED - speed; }
 
 
 }
