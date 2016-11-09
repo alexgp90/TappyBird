@@ -35,6 +35,7 @@ public class InputHandler implements InputProcessor {
             Gdx.app.log("InputHandler", "right side down");
 
             moveright = true;
+            moveleft = false;
             //cod pentru miscat la dreapta
         }
         if (screenX<136 && screenY>136) {
@@ -42,6 +43,7 @@ public class InputHandler implements InputProcessor {
 
 
             moveleft = true;
+            moveright = false;
             //cod pentru miscat la stanga
         }
         return true;

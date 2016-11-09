@@ -64,11 +64,13 @@ public class Bird {
         }
         if (input.moveleft == true)
         {
+            input.moveright = false;
             Gdx.app.log("bird", "left");
             position.add(0,-2);
         }
         if (input.moveright == true)
         {
+            input.moveleft = false;
             Gdx.app.log("bird", "right");
             position.add(0,2);
         }
